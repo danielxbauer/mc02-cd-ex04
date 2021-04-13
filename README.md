@@ -1,4 +1,7 @@
-# mc02-cd-ex04
+# [![Build Status](https://travis-ci.com/danielxbauer/mc02-cd-ex04.svg?branch=main)](https://travis-ci.com/danielxbauer/mc02-cd-ex04) MC02 - Continuous Delivery - Exercie 04
+
+* **Travis CI**: https://travis-ci.com/github/danielxbauer/mc02-cd-ex04
+* **Docker Hub**: https://hub.docker.com/r/pangeax/mc02-cd-go
 
 ## Build
 ``` go
