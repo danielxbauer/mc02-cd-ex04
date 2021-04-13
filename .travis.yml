@@ -10,9 +10,21 @@ services:
 
 script:
   - cd src
-
   # Build
   - go build -v
-
   # Test
   - go test -v
+
+  # Docker build latest
+  - cd ..
+  - echo "$REGISTRY_PASSWORD" | docker login --username $REGISTRY_USER --password-stdin
+  - docker build -f Dockerfile -t pangeax/mc02-cd-go:latest ./
+
+  # Docker tag
+  - GIT_SHA="$(git rev-parse --short HEAD)"
+  - docker tag pangeax/mc02-cd-go:latest pangeax/mc02-cd-go:$GIT_SHA
+
+  # Docker push
+  - docker push pangeax/mc02-cd-go:latest
+  - docker push pangeax/mc02-cd-go:$GIT_SHA
+
